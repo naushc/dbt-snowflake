@@ -32,8 +32,8 @@ jobs:
 
     - name: Push Docker Image
       run: |
-        docker tag dbt-snowflake:latest yourdockerhubusername/dbt-snowflake:latest
-        docker push yourdockerhubusername/dbt-snowflake:latest
+        docker tag dbt-snowflake:latest naushc/dbt-snowflake:latest
+        docker push naushc/dbt-snowflake:latest
 
     # Set up Kubernetes config
     - name: Set up KUBECONFIG

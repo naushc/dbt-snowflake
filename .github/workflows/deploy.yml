@@ -39,7 +39,10 @@ jobs:
     - name: Set up KUBECONFIG
       run: |
         mkdir -p $HOME/.kube
-        echo "${{ secrets.KUBECONFIG }}" | base64 --decode > $HOME/.kube/config
+        echo "$KUBECONFIG" > ~/.kube/config
+        kubectl get nodes  # Test if the cluster is accessible
+      env:
+        KUBECONFIG: ${{ secrets.KUBECONFIG }}
 
     # Deploy to Kubernetes Cluster
     - name: Deploy to Kubernetes

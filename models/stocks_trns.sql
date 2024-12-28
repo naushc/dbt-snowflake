@@ -17,6 +17,7 @@ calculated_measures AS (
     SELECT
         SYMBOL,
         TIMESTAMP,
+        NULL as 'dateasof',
         OPEN_PRICE,
         HIGH_PRICE,
         LOW_PRICE,

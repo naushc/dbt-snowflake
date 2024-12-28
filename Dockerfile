@@ -1,13 +1,15 @@
-# Dockerfile
-FROM python:3.8-slim
+FROM python:3.9-slim
 
-WORKDIR /app
+# Install necessary dependencies
+RUN pip install --upgrade pip
+RUN pip install dbt-snowflake
 
-# Copy your DBT project files
-COPY . .
+# Set the working directory
+WORKDIR /usr/app
 
-# Install dependencies
-RUN pip install --no-cache-dir dbt-snowflake
+# Copy the dbt project into the container
+COPY . /usr/app/
 
-# Set the entrypoint to run DBT commands
+# Set the entrypoint for the container
 ENTRYPOINT ["dbt"]
+CMD ["run"]
